@@ -1,0 +1,11 @@
+{
+  "name": "botpack",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "moment-timezone": "^0.5.33",
+    "facebook-chat-api": "^1.6.0"
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bot Debug Interface</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .container { max-width: 600px; margin: 50px auto; text-align: center; }
+    .status { margin-bottom: 20px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bot Debug Interface</h1>
+    <div class="status">
+      <p id="statusText">Loading...</p>
+    </div>
+    <button id="toggleButton">Toggle Antispam</button>
+  </div>
+
+  <script>
+    async function fetchStatus() {
+      const response = await fetch('/status');
+      const data = await response.json();
+      document.getElementById('statusText').textContent = `Status: ${data.status}`;
+    }
+
+    document.getElementById('toggleButton').addEventListener('click', async () => {
+      const response = await fetch('/toggle-antispam', { method: 'POST' });
+      const data = await response.json();
+      alert(data.status);
+      fetchStatus();
+    });
+
+    fetchStatus();
+  </script>
+</body>
+</html>
