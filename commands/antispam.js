@@ -1,4 +1,4 @@
-const config = require('/home/runner/testproject1/config.json'); // Load the config file
+const config = require('config.json'); // Load the config file
 
 let antispamEnabled = true;
 
